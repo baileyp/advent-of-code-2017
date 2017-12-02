@@ -1,0 +1,13 @@
+# Symfony stuff
+.env
+var/cache/*
+var/logs/*
+
+# Composer stuff
+composer.lock
+vendor
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
