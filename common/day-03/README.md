@@ -14,7 +14,8 @@ exists, it is unknown to me.
 # Part 2
 
 The core algorithm ("building" the spiral grid) remains the same, but requires the addition of a hastable to store the
-grid values. The new solution still requires O(n) time but now also requires O(n) space.
+grid values. The new solution still requires O(n) time but now also requires O(n) space. Plus you need a little
+algorithm to find a square's neighbors.
 
 # Solutions
 
