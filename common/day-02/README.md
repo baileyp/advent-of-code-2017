@@ -16,4 +16,4 @@ For my solutions, I will forgo sorting.
 
 # Solutions
 
- - [PHP](php/src/Solution/Day02Solution.php)
+ - [PHP](../../php/src/Solution/Day02Solution.php)
