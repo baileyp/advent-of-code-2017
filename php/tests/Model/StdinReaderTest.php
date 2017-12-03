@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Model;
+namespace App\Test\Model;
 
 use App\Model\StdinReader;
 use PHPUnit\Framework\TestCase;
