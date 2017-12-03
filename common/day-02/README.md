@@ -13,3 +13,7 @@ You can produce a slightly more optimized solution by sorting the row values fir
 sorting which is, generally speaking, not going to get better than O(n log n).
 
 For my solutions, I will forgo sorting.
+
+# Solutions
+
+ - [PHP](php/src/Solution/Day02Solution.php)
