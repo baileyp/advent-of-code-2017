@@ -1,6 +1,6 @@
 # Part 1
 
-Not complicated but that is to be expected for the first puzzle. Key CS concepts seem to just be loops and pointer manipulation. Should be solvable in O(n) time and O(n) space where `n` is the characgter length of the input.
+Not complicated but that is to be expected for the first puzzle. Key CS concepts seem to just be loops and pointer manipulation. Should be solvable in O(n) time and O(n) space where `n` is the character length of the input.
 
 # Part 2
 
@@ -8,4 +8,4 @@ Very small variation on Part 1. Key insight is that there is no real distinction
 
 # Solutions
 
- - [PHP](php/src/Solution/Day01Solution.php)
+ - [PHP](../../php/src/Solution/Day01Solution.php)
