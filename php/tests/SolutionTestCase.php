@@ -31,5 +31,7 @@ class SolutionTestCase extends TestCase
     {
         unset($this->solution);
         unset($this->mockReader);
+
+        m::close();
     }
 }
