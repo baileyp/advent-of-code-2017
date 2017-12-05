@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
     part1: function(input) {
         var sum = 0;

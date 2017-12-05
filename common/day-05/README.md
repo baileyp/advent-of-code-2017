@@ -15,4 +15,4 @@ did get me back to thinking if there are other algorithms here, faster or not.
 
 # Solutions
 
-- [PHP](../../src/Solution/Day05Solution.php)
+- [PHP](../../php/src/Solution/Day05Solution.php)
