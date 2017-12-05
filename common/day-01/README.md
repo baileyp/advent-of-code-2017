@@ -9,3 +9,4 @@ Very small variation on Part 1. Key insight is that there is no real distinction
 # Solutions
 
  - [PHP](../../php/src/Solution/Day01Solution.php)
+ - [JavaScript](../../javascript/lib/solution/day01.js)
