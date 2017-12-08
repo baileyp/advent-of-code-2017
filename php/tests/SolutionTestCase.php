@@ -5,6 +5,8 @@ namespace App\Test;
 use App\Model\InputReaderInterface;
 use App\Solution;
 use PHPUnit\Framework\TestCase;
+
+use \ArrayIterator;
 use \Mockery as m;
 
 class SolutionTestCase extends TestCase
@@ -33,5 +35,21 @@ class SolutionTestCase extends TestCase
         unset($this->mockReader);
 
         m::close();
+    }
+
+    protected function expectReadAll(string $input = null)
+    {
+        $this->mockReader
+            ->shouldReceive('readAll')
+            ->once()
+            ->andReturn(new ArrayIterator(explode("\n", $input ?? static::INPUT)));
+    }
+
+    protected function expectReadLine(string $input = null)
+    {
+        $this->mockReader
+            ->shouldReceive('readLine')
+            ->once()
+            ->andReturn($input ?? static::INPUT);
     }
 }

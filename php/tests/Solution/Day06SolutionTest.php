@@ -10,21 +10,13 @@ class Day06SolutionTest extends SolutionTestCase
 
     public function test_part1()
     {
-        $this->mockReader
-            ->shouldReceive('readLine')
-            ->once()
-            ->andReturn(self::INPUT);
-
+        $this->expectReadLine();
         $this->assertEquals('5', $this->solution->part1());
     }
 
     public function test_part2()
     {
-        $this->mockReader
-            ->shouldReceive('readLine')
-            ->once()
-            ->andReturn(self::INPUT);
-
+        $this->expectReadLine();
         $this->assertEquals('4', $this->solution->part2());
     }
 }

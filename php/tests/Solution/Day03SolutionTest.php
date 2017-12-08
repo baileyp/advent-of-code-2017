@@ -11,11 +11,7 @@ class Day03SolutionTest extends SolutionTestCase
      */
     public function test_part1(string $input, string $result): void
     {
-        $this->mockReader
-            ->shouldReceive('readLine')
-            ->once()
-            ->andReturn($input);
-
+        $this->expectReadLine($input);
         $this->assertEquals($result, $this->solution->part1());
     }
 
@@ -34,11 +30,7 @@ class Day03SolutionTest extends SolutionTestCase
      */
     public function test_part2(string $input, string $result): void
     {
-        $this->mockReader
-            ->shouldReceive('readLine')
-            ->once()
-            ->andReturn($input);
-
+        $this->expectReadLine($input);
         $this->assertEquals($result, $this->solution->part2());
     }
 

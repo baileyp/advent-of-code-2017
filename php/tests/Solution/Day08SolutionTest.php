@@ -15,21 +15,13 @@ INPUT;
 
     public function test_part1()
     {
-        $this->mockReader
-            ->shouldReceive('readAll')
-            ->once()
-            ->andReturn(new \ArrayIterator(explode("\n", self::INPUT)));
-
+        $this->expectReadAll();
         $this->assertEquals('1', $this->solution->part1());
     }
 
     public function test_part2()
     {
-        $this->mockReader
-            ->shouldReceive('readAll')
-            ->once()
-            ->andReturn(new \ArrayIterator(explode("\n", self::INPUT)));
-
+        $this->expectReadAll();
         $this->assertEquals('10', $this->solution->part2());
     }
 }

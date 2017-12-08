@@ -3,7 +3,6 @@
 namespace App\Test\Solution;
 
 use App\Test\SolutionTestCase;
-use \ArrayIterator;
 
 class Day07SolutionTest extends SolutionTestCase
 {
@@ -25,21 +24,13 @@ INPUT;
 
     public function test_part1()
     {
-        $this->mockReader
-            ->shouldReceive('readAll')
-            ->once()
-            ->andReturn(new ArrayIterator(explode("\n", self::INPUT)));
-
+        $this->expectReadAll();
         $this->assertEquals('tknk', $this->solution->part1());
     }
 
     public function test_part2()
     {
-        $this->mockReader
-            ->shouldReceive('readAll')
-            ->once()
-            ->andReturn(new ArrayIterator(explode("\n", self::INPUT)));
-
+        $this->expectReadAll();
         $this->assertEquals('60', $this->solution->part2());
     }
 }
