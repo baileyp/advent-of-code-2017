@@ -26,31 +26,31 @@ class Day08Solution extends AbstractSolution
         parent::__construct($inputReader);
 
         $this->jumps = [
-            'dec' => function(int $value, int $amount) {
+            'dec' => function(int $value, int $amount): int {
                 return $value - $amount;
             },
-            'inc' => function(int $value, int $amount) {
+            'inc' => function(int $value, int $amount): int {
                 return $value + $amount;
             }
         ];
 
         $this->conditions = [
-            '>' => function(int $left, int $right) {
+            '>' => function(int $left, int $right): bool {
                 return $left > $right;
             },
-            '<' => function(int $left, int $right) {
+            '<' => function(int $left, int $right): bool {
                 return $left < $right;
             },
-            '>=' => function(int $left, int $right) {
+            '>=' => function(int $left, int $right): bool {
                 return $left >= $right;
             },
-            '<=' => function(int $left, int $right) {
+            '<=' => function(int $left, int $right): bool {
                 return $left <= $right;
             },
-            '==' => function(int $left, int $right) {
+            '==' => function(int $left, int $right): bool {
                 return $left == $right;
             },
-            '!=' => function(int $left, int $right) {
+            '!=' => function(int $left, int $right): bool {
                 return $left != $right;
             },
         ];
@@ -128,7 +128,7 @@ class Day08Solution extends AbstractSolution
             (int) $parts[2],
             $parts[4],
             $this->conditions[$parts[5]],
-            $parts[6]
+            (int) $parts[6]
         ];
     }
 }
