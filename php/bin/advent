@@ -2,10 +2,11 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
-use App\Command\SolutionCommand;
+use App\Command\{NewCommand, SolutionCommand};
 use App\Solution\Factory;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 $application->add((new SolutionCommand())->setSolutionFactory(new Factory()));
+$application->add(new NewCommand());
 $application->run();
