@@ -48,13 +48,13 @@ class %sTest extends SolutionTestCase
 {
     const INPUT = '';
 
-    public function test_part1(): string
+    public function test_part1()
     {
         \$this->expectReadAll();
         \$this->assertEquals('', \$this->solution->part1());
     }
     
-    public function test_part2(): string
+    public function test_part2()
     {
         \$this->expectReadAll();
         \$this->assertEquals('', \$this->solution->part2());
