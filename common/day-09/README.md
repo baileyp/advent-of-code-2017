@@ -18,3 +18,7 @@ No change to the state machine - only the "scoring" needed to change.
 # Solutions
 
  - [PHP](../../php/src/Solution/Day09Solution.php)
+   > Ported my original solution to Javascript (below) and modified this one by trying my hand and making a generic-ish
+   > class to represent simple state machines. I don't know if I'm 100% happy with the result, but it works and allowed
+   > me to play around with Closures and Anonymous Classes :D
+ - [JavaScript](../../javascript/lib/solution/day09.js)
