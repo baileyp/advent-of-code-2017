@@ -17,4 +17,5 @@ best-case would be (O n log n) where `n` is the number of characters in the enti
 
 # Solutions
 
-- [PHP](../../php/src/Solution/Day04Solution.php)
+ - [PHP](../../php/src/Solution/Day04Solution.php)
+ - [JavaScript](../../javascript/lib/solution/day04.js) 
