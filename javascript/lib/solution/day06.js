@@ -1,11 +1,11 @@
 'use strict';
 
-const hastable = require('../datatype/hashtable.js');
+const hashtable = require('../datatype/hashtable.js');
 
 module.exports = {
     part1: function(input) {
         var banks = parseInput(input);
-        var configsSeen = new hastable.hashtable;
+        var configsSeen = new hashtable.hashtable;
         var config = hash(banks);
 
         while (!configsSeen.containsKey(config)) {
@@ -18,7 +18,7 @@ module.exports = {
 
     part2: function(input) {
         var banks = parseInput(input);
-        var configsSeen = new hastable.hashtable;
+        var configsSeen = new hashtable.hashtable;
         var loopSize = 0;
         var config = hash(banks);
 

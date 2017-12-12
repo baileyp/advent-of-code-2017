@@ -9,9 +9,11 @@ module.exports = {
      * @see https://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html
      */
     hashtable: function() {
+        var keys = [];
         var map = {};
 
         this.put = function(key, value) {
+            keys.push(key);
             map[key] = value;
         };
 
@@ -27,14 +29,13 @@ module.exports = {
         };
 
         this.size = function() {
-            var size = 0;
-            for (var key in map) {
-                if (map.hasOwnProperty(key)) {
-                    size++;
-                }
-            }
-
-            return size;
+            return keys.length;
         };
+
+        this.forEach = function(callback) {
+            keys.forEach(function(key){
+                callback(map[key], key);
+            });
+        }
     }
 }
