@@ -63,15 +63,19 @@ class %sTest extends SolutionTestCase
 PHP;
 
     private const README_TEMPLATE = <<<MD
-# Part 1
+# Day %s
+
+http://adventofcode.com/2017/day/%s
+
+## Part 1
 
 TBD
 
-# Part 2
+## Part 2
 
 TBD
 
-# Solutions
+## Solutions
 
  - [PHP](../../php/src/Solution/%s.php)
 MD;
@@ -123,7 +127,7 @@ HELP
 
         $solutionClass = sprintf("Day%'02dSolution", $day);
 
-        $this->createFile($dir . '/README.md', sprintf(self::README_TEMPLATE, $solutionClass), $output);
+        $this->createFile($dir . '/README.md', sprintf(self::README_TEMPLATE, $day, $day, $solutionClass), $output);
         $this->createFile($dir . '/input.txt', '', $output);
         $this->createFile("./src/Solution/$solutionClass.php", sprintf(self::SOLUTION_CLASS_TEMPLATE, $solutionClass), $output);
         $this->createFile("./tests/Solution/{$solutionClass}Test.php", sprintf(self::UNIT_TEST_CLASS_TEMPLATE, $solutionClass), $output);

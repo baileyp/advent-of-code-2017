@@ -1,4 +1,8 @@
-# Part 1
+# Day 13
+
+http://adventofcode.com/2017/day/13
+
+## Part 1
 
 I thought about this one for a while before writing any code. It paid off becuase I think your first instinct (well, at
 least mine was) is to write some objects to simulate a firewall, layers, and packets. While no-doubt that would get you
@@ -12,7 +16,7 @@ firewall is O(L) and needs O(1) space.
 
 Therefore, overall time-complexity is O(L) and space-complexity is also O(L).
 
-# Part 2
+## Part 2
 
 Nearly identical to part1 except introducing the concept of a delay which is just another variable in the math problem.
 
@@ -21,6 +25,6 @@ to do this (if there's a way at all) without simulating *all* packet journeys wi
 `D` represents the smallest amount of delay required for a packet to cross the firewall uncaught. I think this means the
 time-complexity should be recorded as O(D * L). Space-complexity does not change.
 
-# Solutions
+## Solutions
 
  - [PHP](../../php/src/Solution/Day13Solution.php)

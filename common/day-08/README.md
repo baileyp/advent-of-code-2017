@@ -1,4 +1,8 @@
-# Part 1
+# Day 8
+
+http://adventofcode.com/2017/day/8
+
+## Part 1
 
 I'm trying to understand if there's a fundamental CS principle on display here or not. Seems like just more hashtable
 management.
@@ -10,13 +14,13 @@ instructions themselves.
 Otherwise, the puzzle instructions themselves are a plain-language description of the algorithm needed so it's dead-simple
 to implement.
 
-Requires O(n) space, where `n` is the number of registers, and O(i) time where `i` is the number of instructions.
+Requires O(N) space, where `N` is the number of registers, and O(I) time where `I` is the number of instructions.
 
-# Part 2
+## Part 2
 
 Trivial modification - just need one extra variable to track the max value along the way vs calculating the max from the
 end state of the registers. No change in time/space complexity.
 
-# Solutions
+## Solutions
 
  - [PHP](../../php/src/Solution/Day08Solution.php)
