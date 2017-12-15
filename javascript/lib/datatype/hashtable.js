@@ -13,7 +13,9 @@ module.exports = {
         var map = {};
 
         this.put = function(key, value) {
-            keys.push(key);
+            if (!this.containsKey(key)) {
+                keys.push(key);
+            }
             map[key] = value;
         };
 
@@ -36,6 +38,14 @@ module.exports = {
             keys.forEach(function(key){
                 callback(map[key], key);
             });
-        }
+        };
+
+        this.toArray = function() {
+            var values = [];
+            this.forEach(function(value){
+                values.push(value);
+            });
+            return values;
+        };
     }
 }
