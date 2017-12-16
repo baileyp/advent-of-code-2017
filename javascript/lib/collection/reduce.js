@@ -6,9 +6,20 @@ module.exports = {
      *
      * @param carry
      * @param value
-     * @returns {*}
+     * @returns {number}
      */
     sum: function(carry, value) {
         return carry + value;
+    },
+
+    /**
+     * Reduce function that XORs values
+     *
+     * @param carry
+     * @param value
+     * @returns {number}
+     */
+    xor: function(carry, value) {
+        return carry ^ value;
     },
 }
