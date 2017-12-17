@@ -28,7 +28,7 @@ Now to work out the time complexity:
  - Learning a transform: O(M)
  - Applying a transform: O(1)
  - Finding the cycle size: O(C) where `C` is the cycle size itself
- - Finding the answer: O(R) where `R` is the remainder of 1e6 mod C
+ - Finding the answer: O(R) where `R` is the remainder of 1e9 mod C
  
 So overall we're looking at O(M + C + R) where `C` and `R` can vary<sup>2</sup> with input.
 
@@ -38,7 +38,7 @@ So overall we're looking at O(M + C + R) where `C` and `R` can vary<sup>2</sup> 
  
 ## Footnotes
 
- 1. If a solution runs longer than a minute then I assume it's not "correct" even if it ultimately yeilds the
+ 1. If a solution runs longer than a minute then I assume it's not "correct" even if it ultimately yields the
 puzzle's answer.
  2. According to what I learned on Reddit due to something called [Landau's function](https://en.wikipedia.org/wiki/Landau%27s_function),
 `C` does have max value for a set of 16 items, which is 140<sup>2</sup> or 19,600;
