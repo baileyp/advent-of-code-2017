@@ -20,8 +20,8 @@ Fairly trivial modification that I think further tests your understanding of enc
 
  - [PHP](../../php/src/Solution/Day15Solution.php)
  
-## End Notes
+## Footnotes
 
-<sup>1</sup> Confirmed. I did a quick test of using decimal-to-binary conversion and substring operations to compare
+ 1. Confirmed. I did a quick test of using decimal-to-binary conversion and substring operations to compare
 the lowest 16 bits. While it still yielded a correct answer, it took 5x longer to compute. Not quite as large of a
 difference as I suspected, but non-trivial all the same.
