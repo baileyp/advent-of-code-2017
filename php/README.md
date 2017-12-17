@@ -45,3 +45,6 @@ Unit tests can be run if the dev dependencies were installed
 ```bash
 $ bin/phpunit
 ```
+
+> **Note:** All the  `Day*SolutionTest` tests are not proper unit tests but are integration tests of the entire solution
+> using the sample input data provided by the puzzle descriptions, when available.
