@@ -12,7 +12,7 @@ characters along the way. As the cursors move inwards, they each know how to wra
 I tried to think if there is a particular data structure that is ideally suited for the problem than arrays/vectors but
 ultimately, that's what I used.
 
-My algorithm ended up having a time-complexity of O(L * N) where `L` is the number of lengths in the input and `N` is
+My algorithm ended up having a time-complexity of O(LN) where `L` is the number of lengths in the input and `N` is
 number of items in the list. However, since the puzzle asserts that `N` is a fixed-size (only varies for the simplified
 description) then it's probably more correct to document as O(1) not O(N), therefore the overall time-complexity is just
 O(L). Space-complexity is also O(L).

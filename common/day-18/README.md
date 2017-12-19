@@ -10,7 +10,9 @@ exception for this, but it could be done other ways.
 
 Loading the instructions takes O(I) time and space, where `I` is the number of instructions in the input. Each of the
 individual instructions have an O(1) time cost so following the instructions takes O(N) time where `N` is the number of
-instructions before the exit/halt condition is reached. Space complexity remains at O(I).
+instructions before the exit/halt condition is reached. 
+
+Overall, then, time complexity is O(I + N) requiring O(I) space.
 
 ## Part 2
 

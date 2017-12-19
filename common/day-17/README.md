@@ -9,7 +9,7 @@ Bless my stars, a linked list problem!
 The reason this is a linked list problem is because of the requirement for data insertion at an arbitrary index, which
 for linked lists is O(1). Reading indexes from an linked list is also O(1).
 
-So, surprisingly, this solution requires O(1) time and O(1) space<sup>1</sup>.
+The solution has a time complexity of O(S) needing O(S) space where `S` is the number of steps<sup>1</sup>.
 
 ## Part 2
 
@@ -21,7 +21,7 @@ of the list - they never loop around to insert a value at the very beginning.
 With this knowledge in hand, all that was needed was to keep track of values inserted a the 1<sup>st</sup> position. This
 still requires doing all 50 million iterations, but doesn't require actually building a list of 50 million integers.
 
-As before, this remains an O(1) solution for time and space.
+The solution to part 2 does not generate a list, so while it still requires O(S) time, space requirements drop to O(1).
 
 ## Solutions
 
@@ -29,5 +29,6 @@ As before, this remains an O(1) solution for time and space.
  
 ## Footnotes
 
- 1. As with the previous two days, the solution space is fixed - in this case the range of 0 to 2,017. Advancing the
- current position is what requires the puzzle input, and that is solvable in O(1) time.
+ 1. As with the previous two days, the solution space `S` is fixed - in this case the range of 0 to 2,017. Advancing the
+    current position is what requires the puzzle input, and that is solvable in O(1) time. So if we treat `S` as a
+    constant, this solution requires O(1) time and O(1) space.

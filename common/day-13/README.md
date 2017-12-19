@@ -23,7 +23,7 @@ Nearly identical to part1 except introducing the concept of a delay which is jus
 However, when it came to finding a delay that allowed a packet to cross the firewall uncaught, I couldn't figure out how
 to do this (if there's a way at all) without simulating *all* packet journeys with delays of `0` through to  `D` where 
 `D` represents the smallest amount of delay required for a packet to cross the firewall uncaught. I think this means the
-time-complexity should be recorded as O(D * L). Space-complexity does not change.
+time-complexity should be recorded as O(DL). Space-complexity does not change.
 
 ## Solutions
 
