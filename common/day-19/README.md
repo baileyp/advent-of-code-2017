@@ -22,10 +22,11 @@ These were not hard to implement but represent a decent number of components. No
 
  - Loading the diagram into a grid requires O(WH) time and space, where `W` and `H` are the width and height of the
    diagram.
+ - Finding the trailhead of the path takes O(W) time
  - Traversing the path takes O(P) time<sup>2</sup> requiring O(C) space where `P` is the number of path characters in the
    diagram (anything that is not a blank space) and `C` is the number of collectible characters along the path.
    
-So overall time complexity is O(WH + P) and space complexity is O(WH + C).
+So overall time complexity is O(WH + W + P) and space complexity is O(WH + C).
 
 ## Part 2
 
