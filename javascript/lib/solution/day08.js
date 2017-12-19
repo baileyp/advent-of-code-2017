@@ -1,6 +1,5 @@
 'use strict';
 
-const hashtable = require('../datatype/hashtable.js');
 const jumps = {
     'dec': function(value, amount) {
         return value - amount;
@@ -32,22 +31,23 @@ const conditions = {
 
 module.exports = {
     part1: function(input) {
-        const registers = new hashtable.hashtable;
+        const registers = new Map();
 
         input.split("\n")
             .map(parseLine)
             .forEach(function(i9n) {
                 if (i9n.condition(readRegister(registers, i9n.ifRegister), i9n.value)) {
                     const modifiedValue = i9n.jump(readRegister(registers, i9n.register), i9n.amount);
-                    registers.put(i9n.register, modifiedValue);
+                    registers.set(i9n.register, modifiedValue);
                 }
             });
 
-        return Math.max.apply(null, registers.toArray());
+        return Math.max(...registers.values());
+        // return Math.max.apply(null, Array.from(registers.values()));
     },
 
     part2: function(input) {
-        const registers = new hashtable.hashtable;
+        const registers = new Map();
         var max = 0;
 
         input.split("\n")
@@ -55,10 +55,11 @@ module.exports = {
             .forEach(function(i9n) {
                 if (i9n.condition(readRegister(registers, i9n.ifRegister), i9n.value)) {
                     const modifiedValue = i9n.jump(readRegister(registers, i9n.register), i9n.amount);
-                    registers.put(i9n.register, modifiedValue);
+                    registers.set(i9n.register, modifiedValue);
                 }
 
-                max = Math.max(max, Math.max.apply(null, registers.toArray()));
+                max = Math.max(max, Math.max(...registers.values()));
+                // max = Math.max(max, Math.max.apply(null, Array.from(registers.values())));
             });
 
         return max;
@@ -72,9 +73,8 @@ module.exports = {
  * @param key
  */
 function readRegister(registers, key) {
-    const registerValue = registers.get(key);
-    if (registerValue === null) {
-        registers.put(key, 0);
+    if (!registers.has(key)) {
+        registers.set(key, 0);
     }
     return registers.get(key);
 }
@@ -83,7 +83,7 @@ function readRegister(registers, key) {
  * Parse an input line into an instruction object
  *
  * @param line
- * @returns {{register: *, jump: *, amount: Number, ifRegister: *, condition: *, value: Number}}
+ * @returns {{register: String, jump: function, amount: Number, ifRegister: string, condition: function, value: Number}}
  */
 function parseLine(line)
 {

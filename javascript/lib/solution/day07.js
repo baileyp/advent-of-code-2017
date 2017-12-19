@@ -1,7 +1,5 @@
 'use strict';
 
-const hashtable = require('../datatype/hashtable.js');
-
 module.exports = {
     part1: function(input) {
         return buildTower(input).base().name();
@@ -21,7 +19,7 @@ module.exports = {
 function buildTower(input)
 {
     const tower = new Tower();
-    const associations = new hashtable.hashtable;
+    const associations = new Map();
     const rows = input.split("\n").map(parseLine);
 
     rows.forEach(function(row){
@@ -31,7 +29,7 @@ function buildTower(input)
         tower.addProgram(program);
 
         if (children.length) {
-            associations.put(program.name(), children);
+            associations.set(program.name(), children);
         }
     });
 
@@ -66,7 +64,7 @@ function parseLine(line)
  */
 function Tower()
 {
-    var programs = new hashtable.hashtable;
+    var programs = new Map();
 
     /**
      * Retrieve a program by its name
@@ -83,7 +81,7 @@ function Tower()
      * @param program
      */
     this.addProgram = function(program) {
-        programs.put(program.name(), program);
+        programs.set(program.name(), program);
     };
 
     /**
@@ -140,7 +138,7 @@ function Tower()
      */
     this.findImbalanceRecursive = function(program)
     {
-        const weights = new hashtable.hashtable;
+        const weights = new Map();
         var imbalancedWeight;
         var balancedWeight;
 
@@ -149,10 +147,10 @@ function Tower()
             const totalWeight = supported.totalWeight();
             var programsAtWeight = weights.get(totalWeight) || [];
             programsAtWeight.push(supported.name());
-            weights.put(totalWeight, programsAtWeight);
+            weights.set(totalWeight, programsAtWeight);
         });
 
-        if (weights.size() === 1) {
+        if (weights.size === 1) {
             throw "Program is balanced!";
         }
 
@@ -187,7 +185,7 @@ function Tower()
  */
 function Program(name, weight)
 {
-    const disc = new hashtable.hashtable;
+    const disc = new Map();
     var supportedBy = null;
 
     this.name = function()
@@ -217,7 +215,7 @@ function Program(name, weight)
     /**
      * Get the program's disc aka child programs
      *
-     * @returns {Hashtable}
+     * @returns {Map}
      */
     this.disc = function()
     {
@@ -241,7 +239,7 @@ function Program(name, weight)
      */
     this.addToDisc = function(program)
     {
-        disc.put(program.name(), program);
+        disc.set(program.name(), program);
         program.setSupportedBy(this);
     };
 

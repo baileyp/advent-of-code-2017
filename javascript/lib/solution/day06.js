@@ -1,29 +1,27 @@
 'use strict';
 
-const hashtable = require('../datatype/hashtable.js');
-
 module.exports = {
     part1: function(input) {
         var banks = parseInput(input);
-        var configsSeen = new hashtable.hashtable;
+        var configsSeen = new Map();
         var config = hash(banks);
 
-        while (!configsSeen.containsKey(config)) {
-            configsSeen.put(config, true);
+        while (!configsSeen.has(config)) {
+            configsSeen.set(config, true);
             banks = redistribute(findLargestBank(banks), banks);
             config = hash(banks);
         }
-        return configsSeen.size().toString();
+        return configsSeen.size.toString();
     },
 
     part2: function(input) {
         var banks = parseInput(input);
-        var configsSeen = new hashtable.hashtable;
+        var configsSeen = new Map();
         var loopSize = 0;
         var config = hash(banks);
 
-        while (!configsSeen.containsKey(config)) {
-            configsSeen.put(config, loopSize++);
+        while (!configsSeen.has(config)) {
+            configsSeen.set(config, loopSize++);
             banks = redistribute(findLargestBank(banks), banks);
             config = hash(banks);
         }
