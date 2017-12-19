@@ -1,32 +1,16 @@
 'use strict';
 
 const jumps = {
-    'dec': function(value, amount) {
-        return value - amount;
-    },
-    'inc': function(value, amount) {
-        return value + amount;
-    }
+    'dec': (value, amount) => value - amount,
+    'inc': (value, amount) => value + amount,
 };
 const conditions = {
-    '>': function(left, right) {
-        return left > right;
-    },
-    '<': function(left, right) {
-        return left < right;
-    },
-    '>=': function(left, right) {
-        return left >= right;
-    },
-    '<=': function(left, right) {
-        return left <= right;
-    },
-    '==': function(left, right) {
-        return left == right;
-    },
-    '!=': function(left, right) {
-        return left != right;
-    },
+    '>': (left, right) => left > right,
+    '<': (left, right) => left < right,
+    '>=': (left, right) => left >= right,
+    '<=': (left, right) => left <= right,
+    '==': (left, right) => left == right,
+    '!=': (left, right) => left != right,
 };
 
 module.exports = {

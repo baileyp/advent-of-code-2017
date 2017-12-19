@@ -7,9 +7,7 @@ module.exports = {
      * @param value
      * @returns {Number}
      */
-    int: function(value) {
-        return parseInt(value, 10);
-    },
+    int: value => parseInt(value, 10),
 
     /**
      * Convert base 10 to hex string
@@ -17,9 +15,7 @@ module.exports = {
      * @param int
      * @returns {string}
      */
-    hex: function(int) {
-        return int.toString(16);
-    },
+    hex: int => int.toString(16),
 
     /**
      * Convert chars to ordinal values
@@ -27,9 +23,7 @@ module.exports = {
      * @param chr
      * @returns {Number}
      */
-    ord: function(chr) {
-        return chr.charCodeAt(0);
-    },
+    ord: chr => chr.charCodeAt(0),
 
     /**
      * Apply String.prototype.padStart() to every element of an array.
@@ -40,9 +34,5 @@ module.exports = {
      * @param amount
      * @returns {Function}
      */
-    padStart: function(chr, amount) {
-        return function(str) {
-            return str.padStart(amount, chr);
-        }
-    }
+    padStart: (chr, amount) => str => str.padStart(amount, chr)
 };
