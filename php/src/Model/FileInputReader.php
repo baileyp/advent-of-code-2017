@@ -14,7 +14,7 @@ class FileInputReader implements InputReaderInterface
     public function __construct(string $path)
     {
         $this->file = new SplFileObject($path, 'r+');
-        $this->file->setFlags(SplFileObject::DROP_NEW_LINE);
+        $this->file->setFlags(SplFileObject::DROP_NEW_LINE | SplFileObject::SKIP_EMPTY);
         $this->file->flock(LOCK_SH);
     }
 

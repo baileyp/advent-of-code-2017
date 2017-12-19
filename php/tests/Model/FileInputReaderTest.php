@@ -9,6 +9,7 @@ class FileInputReaderTest extends TestCase
 {
     const SINGLE_LINE_FILE = __DIR__ . '/../_data/single_line.txt';
     const MULTI_LINE_FILE = __DIR__ . '/../_data/multiple_lines.txt';
+    const BLANK_LINE_FILE = __DIR__ . '/../_data/blank_lines.txt';
 
     public function tearDown()
     {
@@ -37,6 +38,14 @@ class FileInputReaderTest extends TestCase
         $this->assertEquals($line3, $reader->readLine());
         $this->assertNull($reader->readLine());
         $this->assertEquals([$line1, $line2, $line3], iterator_to_array($reader->readAll()));
+    }
+
+    public function testWithBlankLines()
+    {
+        $reader = new FileInputReader(self::BLANK_LINE_FILE);
+
+        $expected = ['Readable Test File', 'With Multiple', 'Lines,  Some are blank', false];
+        $this->assertEquals($expected, iterator_to_array($reader->readAll()));
     }
 
     /**
