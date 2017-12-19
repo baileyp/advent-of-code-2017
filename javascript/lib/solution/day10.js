@@ -2,35 +2,35 @@
 
 const map = require('../collection/map.js');
 const reduce = require('../collection/reduce.js');
-const LIST_SIZE = 256;
 
 var currentPosition = 0;
 var skipSize = 0;
 
 module.exports = {
-    part1: function (input) {
+    part1: function (input, listSize) {
+        listSize = listSize || 256;
         const lengths = input.split(',').map(map.int);
-        var list = range(0, LIST_SIZE - 1);
+        var list = range(0, listSize - 1);
 
         list = applyLengthReversals(list, lengths);
-        
+
         return list[0] * list[1];
     },
-    
-    part2: function(input) {
-        const lengths = input.split('').map(map.ord).concat([17, 31, 73, 47, 23]);
-        var list = range(0, LIST_SIZE - 1);
 
+    part2: function(input, listSize) {
+        listSize = listSize || 256;
+        const lengths = input.split('').map(map.ord).concat([17, 31, 73, 47, 23]);
+        var list = range(0, listSize - 1);
+        currentPosition = skipSize = 0;
         for (var i = 0; i < 64; i++) {
             list = applyLengthReversals(list, lengths);
         }
-
         return hashDense(list)
             .map(map.hex)
             .map(map.padStart('0', 2))
             .join('');
     }
-}
+};
 
 /**
  * Range builder for integers
@@ -67,7 +67,7 @@ function hashDense(sparseHash)
  *
  * @param list
  * @param lengths
- * @returns {*}
+ * @returns {array}
  */
 function applyLengthReversals(list, lengths)
 {
@@ -75,8 +75,8 @@ function applyLengthReversals(list, lengths)
         list = reverseSublist(list, currentPosition, length);
 
         currentPosition += length + skipSize;
-        if (currentPosition > LIST_SIZE) {
-            currentPosition = currentPosition % LIST_SIZE;
+        if (currentPosition > list.length) {
+            currentPosition = currentPosition % list.length;
         }
 
         skipSize++;
@@ -98,11 +98,11 @@ function applyLengthReversals(list, lengths)
 function reverseSublist(list, start, length)
 {
     var end = start + length - 1;
-    if (start >= LIST_SIZE) {
-        start = start % LIST_SIZE;
+    if (start >= list.length) {
+        start = start % list.length;
     }
-    if (end >= LIST_SIZE) {
-        end = end % LIST_SIZE;
+    if (end >= list.length) {
+        end = end % list.length;
     }
     for (var i = 0; i < length; i += 2) {
         const temp = list[start];
@@ -113,10 +113,10 @@ function reverseSublist(list, start, length)
         end--;
 
         if (end < 0) {
-            end = LIST_SIZE - 1;
+            end = list.length - 1;
         }
 
-        if (start >= LIST_SIZE) {
+        if (start >= list.length) {
             start = 0;
         }
     }

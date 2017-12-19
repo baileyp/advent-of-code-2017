@@ -1,5 +1,11 @@
 {
   "engines": {
     "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "test": "mocha --recursive test/"
   }
 }

@@ -37,4 +37,11 @@ $ node solutions.js 1 1 1122
 
 ## Testing
 
-Unit tests don't yet exist - but they're coming!
+Unit tests can be run if the dev dependencies were installed
+
+```bash
+$ npm test
+```
+
+> **Note:** All the  `test/solution/day*_test.js` tests are not proper unit tests but are integration tests of the entire
+> solution using the sample input data provided by the puzzle descriptions, when available.
