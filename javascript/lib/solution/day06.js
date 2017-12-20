@@ -1,5 +1,7 @@
 'use strict';
 
+const map = require('../collection/map');
+
 module.exports = {
     part1: function(input) {
         var banks = parseInput(input);
@@ -71,7 +73,7 @@ function findLargestBank(banks)
     var index = 0;
     var blocks = 0;
 
-    banks.forEach(function(val, key){
+    banks.forEach((val, key) => {
         if (val > blocks) {
             index = key;
             blocks = val;
@@ -98,9 +100,7 @@ function hash(banks)
  * @param input
  * @returns {Array}
  */
-function parseInput(input) {
-    return input.split("\t")
-        .map(function(line) {
-            return parseInt(line, 10);
-        });
+function parseInput(input)
+{
+    return input.split("\t").map(map.int);
 }

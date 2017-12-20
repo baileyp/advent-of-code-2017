@@ -1,6 +1,6 @@
 'use strict';
 
-const reduce = require('../collection/reduce.js');
+const reduce = require('../collection/reduce');
 
 module.exports = {
     part1: function(input) {
@@ -25,9 +25,7 @@ module.exports = {
  * @returns {Array}
  */
 function rowToNumbers(row) {
-    return row.split("\t").map(function(cell){
-        return parseInt(cell, 10);
-    });
+    return row.split("\t").map(cell => parseInt(cell, 10));
 }
 
 /**

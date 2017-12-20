@@ -1,5 +1,7 @@
 'use strict';
 
+const map = require('../collection/map');
+
 module.exports = {
     part1: function(input) {
         const offsets = parseInput(input);
@@ -8,7 +10,7 @@ module.exports = {
         var jumps = 0;
 
         while (cursor >= 0 && cursor < offsets.length) {
-            cursor += offsets[cursor]++
+            cursor += offsets[cursor]++;
             jumps++
         }
 
@@ -39,9 +41,7 @@ module.exports = {
  * @param input
  * @returns {Array}
  */
-function parseInput(input) {
-    return input.split("\n")
-        .map(function(line) {
-            return parseInt(line, 10);
-        });
+function parseInput(input)
+{
+    return input.split("\n").map(map.int);
 }

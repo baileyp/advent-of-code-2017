@@ -8,32 +8,32 @@ module.exports = {
 
         for (var i = 0; i < input.length; i++) {
             switch (input.charAt(i)) {
-            case '!':
-                i++;
-                break;
-            case '{':
-                if (!inGarbage) {
-                    groupDepth++;
-                }
-                break;
-            case '}':
-                if (!inGarbage) {
-                    score += groupDepth;
-                    groupDepth--;
-                }
-                break;
-            case '<':
-                if (!inGarbage) {
-                    inGarbage = true;
-                }
-                break;
-            case '>':
-                if (inGarbage) {
-                    inGarbage = false;
-                }
-                break;
-            default:
-                // Nothing
+                case '!':
+                    i++;
+                    break;
+                case '{':
+                    if (!inGarbage) {
+                        groupDepth++;
+                    }
+                    break;
+                case '}':
+                    if (!inGarbage) {
+                        score += groupDepth;
+                        groupDepth--;
+                    }
+                    break;
+                case '<':
+                    if (!inGarbage) {
+                        inGarbage = true;
+                    }
+                    break;
+                case '>':
+                    if (inGarbage) {
+                        inGarbage = false;
+                    }
+                    break;
+                default:
+                    // Nothing
             }
         }
 
@@ -47,41 +47,41 @@ module.exports = {
 
         for (var i = 0; i < input.length; i++) {
             switch (input.charAt(i)) {
-            case '!':
-                i++;
-                break;
-            case '{':
-                if (!inGarbage) {
-                    groupDepth++;
-                } else {
-                    garbageCount++;
-                }
-                break;
-            case '}':
-                if (!inGarbage) {
-                    groupDepth--;
-                } else {
-                    garbageCount++;
-                }
-                break;
-            case '<':
-                if (!inGarbage) {
-                    inGarbage = true;
-                } else {
-                    garbageCount++;
-                }
-                break;
-            case '>':
-                if (inGarbage) {
-                    inGarbage = false;
-                } else {
-                    garbageCount++;
-                }
-                break;
-            default:
-                if (inGarbage) {
-                    garbageCount++;
-                }
+                case '!':
+                    i++;
+                    break;
+                case '{':
+                    if (!inGarbage) {
+                        groupDepth++;
+                    } else {
+                        garbageCount++;
+                    }
+                    break;
+                case '}':
+                    if (!inGarbage) {
+                        groupDepth--;
+                    } else {
+                        garbageCount++;
+                    }
+                    break;
+                case '<':
+                    if (!inGarbage) {
+                        inGarbage = true;
+                    } else {
+                        garbageCount++;
+                    }
+                    break;
+                case '>':
+                    if (inGarbage) {
+                        inGarbage = false;
+                    } else {
+                        garbageCount++;
+                    }
+                    break;
+                default:
+                    if (inGarbage) {
+                        garbageCount++;
+                    }
             }
         }
 

@@ -7,8 +7,7 @@ var currentPosition = 0;
 var skipSize = 0;
 
 module.exports = {
-    part1: function (input, listSize) {
-        listSize = listSize || 256;
+    part1: function (input, listSize = 256) {
         const lengths = input.split(',').map(map.int);
         var list = range(0, listSize - 1);
 
@@ -17,14 +16,15 @@ module.exports = {
         return list[0] * list[1];
     },
 
-    part2: function(input, listSize) {
-        listSize = listSize || 256;
+    part2: function(input, listSize = 256) {
         const lengths = input.split('').map(map.ord).concat([17, 31, 73, 47, 23]);
         var list = range(0, listSize - 1);
         currentPosition = skipSize = 0;
+
         for (var i = 0; i < 64; i++) {
             list = applyLengthReversals(list, lengths);
         }
+
         return hashDense(list)
             .map(map.hex)
             .map(map.padStart('0', 2))
@@ -57,9 +57,7 @@ function hashDense(sparseHash)
         chunks.push(sparseHash.splice(0, 16));
     }
 
-    return chunks.map(function(chunk) {
-        return chunk.reduce(reduce.xor);
-    });
+    return chunks.map(chunk => chunk.reduce(reduce.xor));
 }
 
 /**
@@ -71,7 +69,7 @@ function hashDense(sparseHash)
  */
 function applyLengthReversals(list, lengths)
 {
-    lengths.forEach(function(length) {
+    lengths.forEach(length => {
         list = reverseSublist(list, currentPosition, length);
 
         currentPosition += length + skipSize;

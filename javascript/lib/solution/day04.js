@@ -1,21 +1,17 @@
 'use strict';
 
-const reduce = require('../collection/reduce.js');
+const reduce = require('../collection/reduce');
 
 module.exports = {
     part1: function(input) {
         return input.split("\n")
-            .map(function(passphrase) {
-                return containsNoDuplicates(passphrase) ? 1 : 0;
-            })
+            .map(passphrase => containsNoDuplicates(passphrase) ? 1 : 0)
             .reduce(reduce.sum);
     },
 
     part2: function(input) {
         return input.split("\n")
-            .map(function(passphrase) {
-                return containsNoAnagrams(passphrase) ? 1 : 0;
-            })
+            .map(passphrase => containsNoAnagrams(passphrase) ? 1 : 0)
             .reduce(reduce.sum);
     },
 }
@@ -29,13 +25,13 @@ module.exports = {
 function containsNoDuplicates(passphrase)
 {
     const words = passphrase.split(' ');
-    var dictionary = [];
+    var dictionary = new Set();
 
     for (var i = 0; i < words.length; i++) {
-        if (dictionary.hasOwnProperty(words[i])) {
+        if (dictionary.has(words[i])) {
             return false;
         }
-        dictionary[words[i]] = true;
+        dictionary.add(words[i]);
     }
 
     return true;
@@ -53,13 +49,13 @@ function containsNoAnagrams(passphrase)
         .split(' ')
         .map(canonicalize);
 
-    var dictionary = [];
+    var dictionary = new Set();
 
     for (var i = 0; i < words.length; i++) {
-        if (dictionary.hasOwnProperty(words[i])) {
+        if (dictionary.has(words[i])) {
             return false;
         }
-        dictionary[words[i]] = true;
+        dictionary.add(words[i]);
     }
 
     return true;

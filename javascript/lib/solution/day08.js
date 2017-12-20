@@ -19,15 +19,16 @@ module.exports = {
 
         input.split("\n")
             .map(parseLine)
-            .forEach(function(i9n) {
+            .forEach(i9n => {
                 if (i9n.condition(readRegister(registers, i9n.ifRegister), i9n.value)) {
-                    const modifiedValue = i9n.jump(readRegister(registers, i9n.register), i9n.amount);
-                    registers.set(i9n.register, modifiedValue);
+                    registers.set(
+                        i9n.register,
+                        i9n.jump(readRegister(registers, i9n.register), i9n.amount)
+                    );
                 }
             });
 
         return Math.max(...registers.values());
-        // return Math.max.apply(null, Array.from(registers.values()));
     },
 
     part2: function(input) {
@@ -38,12 +39,13 @@ module.exports = {
             .map(parseLine)
             .forEach(function(i9n) {
                 if (i9n.condition(readRegister(registers, i9n.ifRegister), i9n.value)) {
-                    const modifiedValue = i9n.jump(readRegister(registers, i9n.register), i9n.amount);
-                    registers.set(i9n.register, modifiedValue);
+                    registers.set(
+                        i9n.register,
+                        i9n.jump(readRegister(registers, i9n.register), i9n.amount)
+                    );
                 }
 
                 max = Math.max(max, Math.max(...registers.values()));
-                // max = Math.max(max, Math.max.apply(null, Array.from(registers.values())));
             });
 
         return max;
@@ -53,8 +55,8 @@ module.exports = {
 /**
  * Read the value of register |key|. If it does not exist, create it and initialize to 0
  *
- * @param registers
  * @param key
+ * @returns {*}
  */
 function readRegister(registers, key) {
     if (!registers.has(key)) {
