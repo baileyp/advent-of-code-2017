@@ -4,7 +4,7 @@ http://adventofcode.com/2017/day/24
 
 ## Part 1
 
-I ended up implementing this twice. The first time around I build a graph of all the bridges and then used DFS to find
+I ended up implementing this twice. The first time around I built a graph of all the bridges and then used DFS to find
 bridge sums. Here's how the sample input would look as a graph:
 
 ```
@@ -22,7 +22,7 @@ bridge sums. Here's how the sample input would look as a graph:
 There's a node for every possible bridge but the leaf nodes will always represent "full" bridges so DFS was perfect for
 calculating sums.
 
-It worked but building the full graph took quite a bit of RAM (about 300MB), and upon reflection, should have. The space
+It worked but building the full graph took quite a bit of RAM (about 300MB) and, upon reflection, should have. The space
 needed to store all valid bridges in a graph is best-case O(Z + R) and worst-case O(ZR!) where `Z` is the number of
 ports with a zero, and `R` is all the remaining ports<sup>1</sup>.
 
@@ -52,5 +52,5 @@ you out if your part 1 solution did too much to hide the bridge lengths, but tha
 
  1. Worst-case is astronomically high, but real-world space requirements would be much, much less. The only way you'd
     truly consume that much space is if all the `Z` and `R` ports were identical (i.e., all `Z` ports could connect to
-    `R` ports and all `R` ports could connect to all other `R` ports).
+    all `R` ports, and all `R` ports could connect to all other `R` ports).
  2. If you know of a better way to document this, [let me know](https://twitter.com/phpbagpiper).

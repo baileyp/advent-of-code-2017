@@ -12,7 +12,7 @@ I had to look this up on Reddit. For one, I didn't realize these instructions we
 For two, even if I had, I have zero practice in translating assembly and honestly, after working on this problem, I don't
 find the process to be terribly fun or rewarding.
 
-I loaded all the instructions so I could at least dynamically pull the key instruction values, although many solutions I
+I loaded all the instructions so I could at least dynamically pull the key instruction values although many solutions I
 saw on Reddit just hard-coded these values.
 
 Once the min, max, and increment values for register b have been loaded, the algorithm is O(B√B) where `B` is the

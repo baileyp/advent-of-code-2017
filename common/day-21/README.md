@@ -22,9 +22,9 @@ but had a devil of a time debugging the merge and split operations. Since matchi
 a fixed data set (the enhancement rules), I decided pre-cache all possible rotations and flips up front. This decision
 ups the space requirement but allows matrix matching to occur in O(1) time. On that note, time to cover the Big O stuff.
 
-Loading the enhancement rules, including pre-caching all the transformations, takes O(E(M + M</sup>2</sup>)) time
+Loading the enhancement rules, including pre-caching all the transformations, takes O(E(M + M<sup>2</sup>)) time
 requiring O(E) space, where `E` is the number of enhancement rules and `M` is the size<sup>1</sup> of the matrices in
-the input, which varies per enhancement rule but has reliable median.
+the input, which varies per enhancement rule but has a reliable median.
 
 Generating a new generation of the art requires splitting the matrix, which is O(G(MS)<sup>2</sup>) where `G` is the 
 growth per generation<sup>2</sup> and `S` is the size of the split (which is always 2 or 3, per the puzzle instructions).
