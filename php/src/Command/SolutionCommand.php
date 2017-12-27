@@ -70,6 +70,29 @@ HELP
 
         $solution = $this->solutionFactory->createCallable($day, $part);
 
-        $output->writeln($solution($input->getArgument('input')));
+        $output->writeln("<info>Solving for Day <comment>$day</comment> Part <comment>$part</comment></info>");
+
+        $start = microtime(true);
+        $result = $solution($input->getArgument('input'));
+        $elapsed = microtime(true) - $start;
+        $memory = $this->formatMemory(memory_get_peak_usage());
+
+        $output->writeln("<info>Result:</info> $result");
+        $output->writeln("<info>Calculated in <comment>$elapsed</comment> seconds");
+        $output->writeln("<info>Using <comment>$memory</comment> of memory");
+    }
+
+    /**
+     * Format $bytes of memory to a Log1000 representation
+     *
+     * @param $bytes
+     * @return string
+     */
+    private function formatMemory($bytes): string
+    {
+        $unit = ['B','KB','MB','GB','TB','PB'];
+        if ($bytes==0) return '0 ' . $unit[0];
+        return round($bytes/pow(1000,($i=floor(log($bytes,1000)))),2) .' '. (isset($unit[$i]) ? $unit[$i] : 'B');
     }
 }
+
