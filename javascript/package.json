@@ -3,7 +3,7 @@
     "node": ">= 0.10.0"
   },
   "devDependencies": {
-    "mocha": "^4.0.1"
+    "mocha": "^10.2.0"
   },
   "scripts": {
     "test": "mocha --recursive test/"
